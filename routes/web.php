@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index');
+
 Route::get('/postSelection',function() {
     return view('postSelection');
 });
@@ -22,3 +23,4 @@ Route::post('/questions/store', [QuestionController::class, 'store'])->name('que
 
 //記事
 Route::get('/articles/create', [ArticleController::class, 'create'])->name('article.create');
+Route::post('/articles/store', [ArticleController::class, 'store'])->name('article.store');

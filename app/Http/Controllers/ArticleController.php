@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
 {
@@ -28,7 +29,32 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //バリデーション
+        $validator = Validator::make($request->all(), [
+            'title' => 'required | max:255',
+            'tags' => 'nullable | min:1',
+            'image' => 'nullable|file|mimes:jpeg,png,pdf,docx',
+            'content'   => 'required',
+        ]);
+
+        //バリデーション:エラー 
+        if ($validator->fails()) {
+            return redirect('/')
+                ->withInput()
+                ->withErrors($validator);
+        }
+        //以下に登録処理を記述（Eloquentモデル）
+        $article = new Article();
+        $article->title = $request->input('title');
+        $article->tags = $request->input('tags');
+        if ($request->hasFile('image')) {
+            $article->image = $request->file('image')->store('uploads');
+        }
+        $article->content = $request->input('content');
+        $article->status = $request->input('status'); // 'draft' もしくは 'publish'
+        $article->save();
+
+        return redirect()->route('index')->with('success', '記事が保存されました');
     }
 
     /**
