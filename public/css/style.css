@@ -113,6 +113,14 @@ a {
     margin: 10px;
 }
 
+.left-side {
+    margin-left: 700px;
+}
+
+.mt {
+    margin-top: 16px;
+}
+
 /* postSelection */
 .selection {
     text-align: center;
@@ -121,4 +129,48 @@ a {
 /* 記事投稿ページ（articles/create）の記事内容部分 */
 #editor {
     height: 500px;
+}
+
+/* question.index */
+.q_buttons {
+    display: flex;
+}
+
+.q_wrapper {
+    display: flex;
+    border: 0.25rem bold #1B1D40;
+    
+    /* 囲み線 */
+    padding: 8px 19px;
+    margin: 2em 0;
+    color: #1B1D40;
+    background: #fff;
+    border-top: solid 5px #979eb1;
+    border-bottom: solid 5px #979eb1;
+}
+
+.q_list {
+    margin-left: 10px;
+}
+
+.q_img {
+    width: 150px;
+}
+
+.q_list_content {
+    margin-left: 25px;
+    line-height: 15px;
+}
+
+.q_list_title {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.q_list_tags {
+    font-size: 15px;
+}
+
+.q_list_updated {
+    font-size: 10px;
 }

@@ -13,7 +13,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return view('questions.index');
+        $questions = Question::all();
+        return view('questions.index', ['questions' => $questions]);
     }
 
     /**
@@ -48,7 +49,7 @@ class QuestionController extends Controller
         $question->title = $request->input('title');
         $question->tags = $request->input('tags');
         if ($request->hasFile('image')) {
-            $question->image = $request->file('image')->store('uploads');
+            $question->image = $request->file('image')->store('questions', 'public');
         }
         $question->content = $request->input('content');
         $question->status = $request->input('status'); // 'draft' もしくは 'publish'
