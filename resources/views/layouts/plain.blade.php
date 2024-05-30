@@ -26,13 +26,6 @@
     <div class="">
         <ul class="top">
             <li><a class="" href="/"><img class="logo_top" src="{{ asset('images/index/logo.png') }}" alt="ロゴ"></a></li>
-            <li>
-                <label for="search"><img id="searchImg" src="{{ asset('images/index/search.svg') }}" alt=""></label>
-                <input type="text" name="search" id="search" placeholder="         全ての記事/レシピから検索">
-            </li>
-            <li class="headerbtn" id="question"><a href="/questions"><button class="btn" type="button" name="question">質問 / 回答</button></a></li>
-            <li class="headerbtn" id="post"><a href="/postSelection"><button class="btn" type="button" name="post">投稿する</button></a></li>
-            <li class="headerbtn" id="login"><a href="/login"><button class="btn" type="button" name="login">ログイン</button></a></li>
         </ul>
     </div>
 </header>

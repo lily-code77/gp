@@ -3,6 +3,8 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -16,6 +18,11 @@ Route::get('/', function () {
 Route::get('/postSelection',function() {
     return view('postSelection');
 });
+
+//ログイン
+Route::get('/login', function() {return view('login');});
+Route::get('/users/create', [UserController::class, 'create'])->name('user.create');
+Route::post('/users/store', [UserController::class, 'store'])->name('user.store');
 
 //質問
 Route::get('/questions', [QuestionController::class, 'index'])->name('question.index');
