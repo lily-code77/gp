@@ -29,8 +29,7 @@
         <div>
             <label class="" for="image">画像</label>
             <div class="">
-                <img id="previewImage" src="" data-noimage="" alt="ユーザ画像" class="rounded-full shadow-md w-32">
-                <input id="image" class="" type="file" accept='image/*' name="image">
+                <input type="file" name="image" accept='image/*' >
             </div>
         </div>
         <div>
